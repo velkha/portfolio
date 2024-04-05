@@ -4,7 +4,7 @@ const ScriptComponent = (scriptSrc) => {
  useEffect(() => {
     console.log(scriptSrc);
     const script = document.createElement('script');
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDpTs4zjh4S_R3cQndlBZHB6XJNdLk3OPU&callback=console.debug&libraries=maps,marker&v=beta";
+    script.src = "";
     script.async = true;
     document.body.appendChild(script);
     return () => {
