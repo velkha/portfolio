@@ -1,0 +1,175 @@
+:root {
+  --main-background: black;
+  --low-background: #282c34;
+  --head-background: #151418;
+  --font-color: white;
+  --font-color-special: red;
+  --main-trans-background: rgba(4, 4, 4, 0.75);
+  --font-special: 'Quantum';
+  --font-main: 'Monaco';
+}
+
+@font-face {
+  font-family: 'Quantum'; /*a name to be used later*/
+  src: url('./assets/fonts/quantum.ttf'); /*URL to font*/
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+  }
+
+html, body {
+  background-color: black;
+}
+
+.parallax {
+  transition: opacity 1s, height 1s;
+  height: 100vh;
+}
+
+.parallax.fade-out {
+  opacity: 0;
+  height: 15vh;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+h1, h2 {
+  font-family: 'Quantum';
+  font-size: 3em;
+}
+p {
+  font-size: 1.5em;
+}
+.App {
+  text-align: center;
+  background-color: black;
+  font: 'Monaco';
+  color: aliceblue;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#main-block {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+
+  width: 100%;
+}
+main {
+  position: relative;
+  background-color: rgba(4, 4, 4, 0.75);
+  width: 80%;
+  left: 10%;
+  z-index: 100;
+}
+
+main>*{
+  width: 100%;
+  padding-top: 4em;
+}
+
+main p {
+  padding-bottom: 1em;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+
+}
+section h1 {
+  font-size: 2em;
+  padding-bottom: 1em;
+}
+
+section p {
+  font-size: 1.5em;
+  padding-bottom: 1em;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes disappear {
+  from { transform: scaleY(1); }
+  to { transform: scaleY(0); opacity: 0;}
+}
+
+@keyframes appear {
+  from { transform: scaleY(0); opacity: 0;}
+  to { transform: scaleY(1); opacity: 1;}
+}
+
+.contentAnimated {
+  transform-origin: top;
+  animation-duration: 2s; 
+}
+
+/* SCROLL BAR */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #50505086;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1b1b1b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+

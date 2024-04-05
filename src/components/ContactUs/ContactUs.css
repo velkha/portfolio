@@ -1,0 +1,20 @@
+.contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5%;
+
+}
+.contacto div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 2em;
+}
+.contacto div img{
+    max-width: 50px;
+    height: auto;
+}
+.contacto div *{
+    margin-left: 10px;
+}

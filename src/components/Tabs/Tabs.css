@@ -1,0 +1,106 @@
+
+.tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 80%;
+}
+.tabs>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    margin: 1em;
+    background-color: var(--main-background);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px #151418;
+    width: 100%;
+}
+
+.tabRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+    align-items: center;
+}
+.tabRow h2 {
+    padding: 0 10px 0 10px;
+}
+
+.tabContainer>.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.tabContainer>.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tabContainer>.content p {
+    flex: 0 0 70%;
+    padding: 0 10px 0 10px;
+    justify-content: center;
+    text-align: left;
+}
+
+.tabContainer>.content img {
+    flex: 0 0 30%;
+}
+
+.tabRow button {
+    background-color: var(--background-color);
+    font-family: 'Quantum';
+    border: none;
+    color: var(--font-color);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2em;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.fade-out-left {
+    animation: fadeOutLeft 0.5s forwards;
+}
+
+.fade-out-right {
+    animation: fadeOutRight 0.5s forwards;  
+}
+
+@keyframes fadeOutLeft {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-100%); }
+}
+
+@keyframes fadeOutRight {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(100%); }
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.5s forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.5s forwards;
+}
+
+@keyframes fadeInLeft {
+    0% { opacity: 0; transform: translateX(-100%); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    0% { opacity: 0; transform: translateX(100%); }
+    100% { opacity: 1; transform: translateX(0); }
+}

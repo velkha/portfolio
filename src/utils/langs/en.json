@@ -1,0 +1,15 @@
+{
+    "title":"React Essentials - title",
+    "contact_us":"Contact Us",
+    "home":"Home",
+    "text1":"testing1",
+    "text2":"testing2",
+    "text3":"testing3",
+    "welcome_text":"Time to get started!",
+    "main_text_concepts":"Fundamental concepts you will need for almost any app you are going to build!",
+    "main_text": [
+        "A kickboxing club is a place dedicated to the practice and promotion of kickboxing, a martial arts discipline that combines punching and kicking techniques. These clubs provide a space where kickboxing enthusiasts, whether beginners or experts, can come together to train, hone their skills, and engage in activities related to this sport.",
+        "Typically, a kickboxing club has qualified instructors who guide members through structured training sessions, teaching attack and defense techniques, as well as providing advice on form and strategy. In addition to regular workouts, many clubs organize events, competitions, and exhibitions to foster camaraderie among members and promote kickboxing at a local or even national level.",
+        "Kickboxing clubs also often offer a supportive and motivating environment where practitioners can set personal goals, improve their physical fitness, and develop self-defense skills. By joining a kickboxing club, participants not only gain physical benefits such as strength and endurance but also enjoy a tight-knit community that shares a passion for this thrilling combat sport."
+    ]
+}
