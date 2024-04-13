@@ -1,20 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import "./Parallax.css";
-import server1 from 'assets/server1.png';
-import server2 from 'assets/server2.png';
-import bgImg from 'assets/background.jpg';
-import mist from 'assets/mist1.png';
-import mist3 from 'assets/mist3.png';
-import blue from 'assets/blue.png';
-import mistBase from 'assets/mistbase.png';
-import mistBase2 from 'assets/mistbase2.png';
-import red from 'assets/red.png';
-
-
-
-
+import server1 from 'assets/server1.webp';
+import server2 from 'assets/server2.webp';
+import bgImg from 'assets/background.webp';
+import mist3 from 'assets/mist3.webp';
+import mistBase from 'assets/mistbase.webp';
 export default function Parallax() {
+  let parallaxEnabled = true;
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0, rotation: 0, clientX: 0 });
+
+  const mistBaseRef = React.useRef<HTMLImageElement | null>(null);
+  const textRef = useRef<HTMLImageElement | null>(null);
+  const img1Ref = useRef<HTMLImageElement | null>(null);
+  const img2Ref = useRef<HTMLImageElement | null>(null);
+  const mist3Ref = useRef<HTMLImageElement | null>(null);
+  
+  useEffect(() => {
+    mistBaseRef.current = document.querySelector('.mist-base');
+    textRef.current = document.querySelector('.text');
+    img1Ref.current = document.querySelector('.img-1');
+    img2Ref.current = document.querySelector('.img-2');
+    mist3Ref.current = document.querySelector('.mist-3');
+  }, []);
+
 
   useEffect(() => {
     const handleMouseMove = (e:MouseEvent) => {
@@ -23,7 +32,7 @@ export default function Parallax() {
       const rotation = (xValue / (window.innerWidth / 2)) * 20;
       setMousePosition({ x: xValue, y: yValue, rotation, clientX: e.clientX });
     };
-
+    
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
@@ -32,6 +41,9 @@ export default function Parallax() {
   }, []);
 
   const getTransformStyle = (element: HTMLElement|null, speedX: number, speedY: number, speedZ: number, rotationSpeed: number)=> {
+    if (!parallaxEnabled || isScrolled) {
+      return {};
+    }
 
     const { x, y, rotation, clientX } = mousePosition;
     let zValue = 0;
@@ -48,29 +60,34 @@ export default function Parallax() {
     };
   };
 
-  return (
-    <div id="parallax">
-      <img src={bgImg} className="bg-img"/>
-      <img src={mistBase} className="mist-base parallax" style={getTransformStyle(document.querySelector('.mist-base'),0.10, 0.09, 0.8, 0.03)} />
-      <img src={mist} className="mist-1 parallax" style={getTransformStyle(document.querySelector('.mist-1'),0.30, 0.39, 0.8, 0.05)} />
-      <div className="text parallax" style={getTransformStyle(document.querySelector('.text'), 0.06, 0.06, 0, 0.08)}>
-        <h1>D<span>I</span>E<span>GO</span></h1>
-        <h2>Paredero Blanco</h2>
-      </div>
-      <img src={server1} className="img-1 parallax" style={getTransformStyle(document.querySelector('.text'),0.06, 0.05, 0.05, 0.11)} />
-      <img src={red} className="light-blue parallax" style={getTransformStyle(document.querySelector('.light-blue'),0.13, 0.09, 0.8, 0.13)} />
-      <img src={server2} className="img-2 parallax" style={getTransformStyle(document.querySelector('.text'),0.10, 0.09, 0.8, 0.05)} />
-      <img src={blue} className="light-red parallax" style={getTransformStyle(document.querySelector('.light-red'),0.7, 0.03, 0.04, 0.17)} />
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const checkScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', checkScroll);
+    return () => {
+      window.removeEventListener('scroll', checkScroll);
+    };
+  }, []);
 
-      <img src={mist3} className="mist-3 parallax" style={getTransformStyle(document.querySelector('.mist-3'),0.10, 0.09, 0.8, 0.2)} />
-      <img src={mist} className="mist-4 parallax" style={getTransformStyle(document.querySelector('.mist-4'),0.10, 0.09, 0.8, 0.2)} />
-      <img src={mistBase2} className="mist-base2 parallax" style={getTransformStyle(document.querySelector('.mist-base2'),0.20, 0.15, 0.8, 0.2)} />
-    </div>
+  return (
+      <div id="parallax" className={`${isScrolled ? 'fade-out' : ''}`}>
+        <img src={bgImg} className="bg-img"/>
+        <img ref={mistBaseRef} src={mistBase} className="mist-base parallax" style={getTransformStyle(mistBaseRef.current,0.10, 0.09, 0.8, 0.03)} />
+        <div className="text parallax">
+          <h1>D<span>I</span>E<span>GO</span></h1>
+          <h2>Paredero Blanco</h2>
+          <h2>Software Developer</h2>
+        </div>
+        <img ref={img1Ref} src={server1} className="img-1 parallax" style={getTransformStyle(img1Ref.current,0.06, 0.05, 0.05, 0.11)} />
+        <img ref={img2Ref} src={server2} className="img-2 parallax" style={getTransformStyle(img2Ref.current,0.10, 0.09, 0.8, 0.05)} />
+        <img ref={mist3Ref} src={mist3} className="mist-3 parallax" style={getTransformStyle(mist3Ref.current,0.10, 0.09, 0.8, 0.2)} />
+      </div>
   );
 }
-/*
-
-      <img src={mist2} className="mist-2 parallax" style={getTransformStyle(document.querySelector('.mist-2'),0.10, 0.09, 0.8, 0.2)} />
-
-      
-      */
+/*getTransformStyle(textRef.current, 0.06, 0.06, 0, 0.08)*/

@@ -1,13 +1,52 @@
 :root {
-  --main-background: black;
-  --low-background: #282c34;
+  --main-background: #111212;
+  --card-background: #191b1b;
+  --low-background: #262c30;
   --head-background: #151418;
   --font-color: white;
-  --font-color-special: red;
+  --font-color-special: #e76f51;
+  --font-color-special-2: #f4a261;
+  --font-color-special-3: #e9c46a;
   --main-trans-background: rgba(4, 4, 4, 0.75);
   --font-special: 'Quantum';
   --font-main: 'Monaco';
+  --object-color: #38a3a5;
+
 }
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-background: #023047;
+  --low-background: #264653;
+    --head-background: #151418;
+    --font-color: white;
+    --font-color-special: var(--orange);
+    --font-color-special: var(--orange);
+    --font-color-special-2: var(--celestial-blue);
+    --font-color-special-3: var(--medium-green);
+    --main-trans-background: rgba(4, 4, 4, 0.75);
+    --scroll-bar-color: #1b1b1b;
+    --scroll-bar-handle-color: #50505086;
+    --scroll-bar-thumb-color: #555;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-background: white;
+    --low-background: #f0f0f0;
+    --head-background: #e0e0e0;
+    --font-color: black;
+    --font-color-special: var(--orange);
+    --font-color-special: var(--orange);
+    --font-color-special-2: var(--celestial-blue);
+    --font-color-special-3: var(--medium-green);
+    --main-trans-background: rgba(4, 4, 4, 0.75);
+    --scroll-bar-color: #1b1b1b;
+    --scroll-bar-handle-color: #50505086;
+    --scroll-bar-thumb-color: #555;
+  }
+}*/
 
 @font-face {
   font-family: 'Quantum'; /*a name to be used later*/
@@ -20,20 +59,12 @@
 	box-sizing: border-box;
 	text-decoration: none;
 	list-style: none;
-  }
+  scroll-behavior: smooth;
+}
 
 html, body {
-  background-color: black;
-}
-
-.parallax {
-  transition: opacity 1s, height 1s;
-  height: 100vh;
-}
-
-.parallax.fade-out {
-  opacity: 0;
-  height: 15vh;
+  background-color: var(--main-background);
+  overflow-x: hidden;
 }
 
 #root {
@@ -43,16 +74,25 @@ html, body {
   left: 0px;
 }
 
-h1, h2 {
+h1 {
   font-family: 'Quantum';
   font-size: 3em;
+  color: var(--font-color-special);
 }
+h2 {
+  font-family: 'Quantum';
+  font-size: 2.5em;
+  color: var(--font-color-special-3);
+}
+
+
+
 p {
   font-size: 1.5em;
 }
 .App {
   text-align: center;
-  background-color: black;
+  background-color: var(--main-background);
   font: 'Monaco';
   color: aliceblue;
   bottom: 0px;
@@ -79,7 +119,7 @@ p {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--font-color);
 }
 
 #main-block {
@@ -94,10 +134,11 @@ p {
 }
 main {
   position: relative;
-  background-color: rgba(4, 4, 4, 0.75);
+  background-color: var(--main-background);
   width: 80%;
   left: 10%;
   z-index: 100;
+  border-radius: 40px;
 }
 
 main>*{
@@ -115,12 +156,17 @@ section {
   align-items: center;
   justify-content: center;
   padding: 1em;
-
 }
+
+section>*{
+  margin-top: 4em;
+}
+
 section h1 {
-  font-size: 2em;
+  font-size: 4em;
   padding-bottom: 1em;
 }
+
 
 section p {
   font-size: 1.5em;
@@ -159,17 +205,28 @@ section p {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #50505086;
+  background: var(--scroll-bar-color);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #1b1b1b;
+  background: var(--scroll-bar-handle-color);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--scroll-bar-thumb-color);
 }
 
+@media screen and (max-width: 600px){
+  * {
+    font-size: 0.95em;
+  }
+}
+
+@media screen and (max-width: 400px){
+  * {
+    font-size: 0.92em;
+  }
+}
 

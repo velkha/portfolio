@@ -7,6 +7,8 @@
 	/*box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
 	border-bottom: 3px solid black;*/
 	z-index: 9999;
+	
+	padding-top: 1em;
 }
 
 nav {
@@ -14,6 +16,7 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px 30px;
+	height: 2em;
 	/*box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
 	border-bottom: 3px solid black;*/
 }
@@ -54,6 +57,11 @@ nav {
 
 .menu-icon {
 	display: none;
+}
+
+.menu li a img {
+	width: 30px;
+	height: 30px;
 }
 
 #menu-toggle {

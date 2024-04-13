@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import './Tabs.css';
-const Tabs = ({title}: {title: string}) => {
+import githubIcon from 'assets/github.png';
+import placeHolder from 'assets/placeholder.webp';
+
+type Tab = {
+    title: string;
+    description: string;
+    link: string;
+    github: string;
+};
+
+type Props = {
+    title: string;
+    tabs: Tab[];
+};
+
+const Tabs = ({title, tabs}: Props ) => {
     const [currentTab, setCurrentTab] = useState(0);
     const [animationClass, setAnimationClass] = useState('fade-in-right');
-    const tabs = [
-        {name: 'Project1', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc sed velit dignissim viverra non id massa. Aenean elit ante, malesuada ac auctor vitae, congue non ante.'}, 
-        {name: 'Project2', content: 'Lorem ipsum dolor sit amet, conlit. Curabitur vitae nunc sed velit dignissim viverra non id massa. Aenean elit ante, malesuada ac auctor vitae, congue non ante.'},
-        {name: 'Project3', content: 'Lorem ipsum dolor sit ametvelit dignissim viverra non id massa. Aenean elit ante, malesuada ac auctor vitae, congue non ante..'},
-    ]
+    
 
     const handleNext = () => {
         setAnimationClass('fade-out-left');
@@ -26,18 +37,21 @@ const Tabs = ({title}: {title: string}) => {
     };
 
     return (
-        <div className="tabs">
-            <h1>{title}</h1>
-            <div className='tabContainer'>
+        <div className="tabs" >
+            <h1 id={title}>{title}</h1>
+            <div className='tabContainer' id={tabs[currentTab].title}>
                 <div className='tabRow'>
                     <button onClick={handlePrev}>&lt;&lt;</button>
-                    <h2 className={animationClass}>{tabs[currentTab].name}</h2>
+                    <h2 className={animationClass}>{tabs[currentTab].title}</h2>
                     <button onClick={handleNext}>&gt;&gt;</button>
                 </div>
                 
                 <div className={`${animationClass} content`}>
-                    <p>{tabs[currentTab].content}</p>
-                    <img src='https://via.placeholder.com/150' alt='placeholder' />
+                    <div>
+                        <p>{tabs[currentTab].description}</p>
+                        <img src={githubIcon} alt='placeholder' />
+                    </div>
+                    <img src={placeHolder} alt='placeholder' />
                 </div>
             </div>
         </div>

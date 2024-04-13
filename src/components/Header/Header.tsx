@@ -1,6 +1,8 @@
 import "./Header.css";
-
+import githubIcon from "assets/github.png";
+import linkedinIcon from "assets/linkedin-icon.png";
 export default function Header() {
+  
   return(
     <header className="header">
       <nav>
@@ -10,9 +12,16 @@ export default function Header() {
         <input type="checkbox" id="menu-toggle"/>
         <label htmlFor="menu-toggle" className="menu-icon">&#9776;</label>
         <ul className="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Donde encontrarnos</a></li>
-          <li><a href="#">Contactanos</a></li>
+          <li>
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                <img src={linkedinIcon} alt="LinkedIn" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.github.com" target="_blank" rel="noreferrer">
+                <img src={githubIcon} alt="GitHub" />
+            </a>
+          </li>
         </ul>
       </nav>
     </header>

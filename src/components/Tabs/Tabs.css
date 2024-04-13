@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    width: 80%;
+    width: 100%;
 }
 .tabs>div {
     display: flex;
@@ -14,21 +14,25 @@
     justify-content: center;
     padding: 1em;
     margin: 1em;
-    background-color: var(--main-background);
+    background-color: var(--card-background);
     border-radius: 10px;
     box-shadow: 0 0 10px 5px #151418;
     width: 100%;
 }
 
 .tabRow {
+    color: var(--font-color);
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
     width: 100%;
     align-items: center;
 }
+.tabsRow * {
+    color: var(--font-color);
+}
 .tabRow h2 {
-    padding: 0 10px 0 10px;
+    margin: 0 10px 0 10px;
 }
 
 .tabContainer>.content{
@@ -44,15 +48,42 @@
     width: 100%;
 }
 
-.tabContainer>.content p {
+.tabContainer>.content div {
+    color: var(--font-color);
     flex: 0 0 70%;
-    padding: 0 10px 0 10px;
+    margin: 0 10px 0 10px;
     justify-content: center;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.tabContainer>.content div img {
+    position: relative;
+    height: 3em;
+    width: 3em;
+    transition: transform 0.5s;
 }
 
-.tabContainer>.content img {
+.tabContainer>.content div img:hover {
+    transform: scale(1.1);
+}
+
+
+.tabContainer>.content>img {
     flex: 0 0 30%;
+    width: 20%;
+    max-width: 20%;
+    max-height: 20%;
+    height: 20%;
+    margin: 2.5% 5% 2.5% 2.5%;
+    border-radius: 20px;
+    transition: transform 0.5s;
+    transform: perspective(500px) rotateY(-20deg);
+}
+.tabContainer>.content img:hover {
+    transform: perspective(500px) rotateY(0deg);
 }
 
 .tabRow button {
@@ -60,7 +91,7 @@
     font-family: 'Quantum';
     border: none;
     color: var(--font-color);
-    padding: 10px 20px;
+    margin: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
